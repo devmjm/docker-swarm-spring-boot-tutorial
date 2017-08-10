@@ -15,15 +15,15 @@ https://docs.docker.com/docker-for-azure/deploy/#worker-nodes
 https://medium.com/lucjuggery/deploy-the-voting-apps-stack-on-a-docker-swarm-4390fd5eee4
 
 ## Common Issues and Fixes
-Error during SSH - Could not open a connection to your authentication agent  
+##### Error during SSH - Could not open a connection to your authentication agent  
 Fix: execute `eval $(ssh-agent)`  
 Reference: https://stackoverflow.com/a/21909432  
 
-Create SSH on Windows  
+##### Create SSH on Windows  
 https://docs.docker.com/docker-cloud/cloud-swarm/ssh-key-setup/#add-your-key-to-the-ssh-agent  
 
-Delete all Docker Containers
+##### Delete all Docker Containers
 command line: `docker rm -f $(docker ps -a -q)`
 
-Delete all Docker Images
+##### Delete all Docker Images
 command line: `docker rmi -f $(docker images -q)`
