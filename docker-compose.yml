@@ -1,0 +1,62 @@
+version: "3.2"
+services:
+  registry:
+    image: "springboot.azurecr.io/spring/docker_registry"
+    deploy:
+      mode: replicated
+      replicas: 2
+      restart_policy:
+        condition: on-failure
+        delay: 10s
+        max_attempts: 3
+        window: 120s
+      placement:
+        constraints: [node.role == manager]
+    ports:
+      - "8600:8600"
+  configuration:
+    image: "springboot.azurecr.io/spring/docker_configuration"
+    deploy:
+      mode: replicated
+      replicas: 2
+      restart_policy:
+        condition: on-failure 
+        delay: 10s
+        max_attempts: 3
+        window: 120s
+      placement:
+        constraints: [node.role == manager]
+    ports:
+      - "8601:8601"
+    environment:
+      - EUREKA_SERVICE_URL=http://registry:8600/
+      - CONFIG_REPOSITORY=/repository/config-repository/
+    depends_on:
+      - registry
+  admin:
+    image: "springboot.azurecr.io/spring/docker_admin"
+    deploy:
+      mode: replicated
+      replicas: 1
+      restart_policy:
+        condition: on-failure 
+        delay: 10s
+        max_attempts: 3
+        window: 120s
+      placement:
+        constraints: [node.role == manager]
+    ports:
+      - "8602:8602"
+    environment:
+      - EUREKA_SERVICE_URL=http://registry:8600/
+    depends_on:
+      - registry
+  viz:
+    image: dockersamples/visualizer
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+    deploy:
+      placement:
+        constraints: [node.role == manager]
+    ports:
+      - 9090:8080
