@@ -13,7 +13,8 @@ https://docs.docker.com/docker-for-azure/#prerequisites
 https://docs.docker.com/docker-for-azure/deploy/#worker-nodes
 
 ### Part 4: Deploy Docker Swarm using Compose file
-https://medium.com/lucjuggery/deploy-the-voting-apps-stack-on-a-docker-swarm-4390fd5eee4
+https://medium.com/lucjuggery/deploy-the-voting-apps-stack-on-a-docker-swarm-4390fd5eee4  
+<i>Note:</i> this repository includes a sample `docker-compose.yml` file for your reference.
 
 ## Common Issues and Fixes
 ##### Error during SSH - Could not open a connection to your authentication agent  
