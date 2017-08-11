@@ -1,4 +1,4 @@
-# docker-swarm-spring-boot-tutorial
+# Tutorial - Deploying Spring Boot on Docker Swarm (Mode) in Azure
 
 ## Tutorial
 ### Part 1: Configure Azure VMs
