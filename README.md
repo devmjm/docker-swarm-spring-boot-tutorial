@@ -1,5 +1,5 @@
 # Deploying Spring Boot on Docker Swarm (Mode) in Azure
-The steps and resource below provide a high-level approach to deploying the Spring Boot Registry, Admin, and Config servers to Docker Swarm Mode, hosted in Azure.
+The steps and resource below provide a high-level approach to deploying the Spring Boot Registry, Admin, and Config servers to Docker Swarm Mode, hosted in Azure. Note the [Common Issues and Fixes](https://github.com/devmjm/docker-swarm-spring-boot-tutorial/blob/master/README.md#common-issues-and-fixes) section below addresses potential issues you may encounter.
 
 ## Tutorial
 ### Part 1: Configure Azure VMs
